@@ -2,6 +2,8 @@ import user from "../model/usermodel.js";
 
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken";
+import dotenv from "dotenv"
+dotenv.config();
 
 export function saveuser(req,res){
 
@@ -42,7 +44,7 @@ export function saveuser(req,res){
                 isblock:user1.isblock,
                 type:user1.type,
                 profilepic:user1.profilepic
-              }, "cbc-key-1020")
+              }, process.env.SECRECT)
 
               res.json({
                 masseg:"user log in",
