@@ -78,6 +78,29 @@ export function saveuser(req,res){
     })
  }
 
- export function isad
+ export function isadmin(req,res){
+  
+    if(req.type==null)
+    {
+       return false
+    }
+    if(req.user.type!="admin")
+    {
+        return false
+    }
+    return true
+ }
+ export function customer(req,res){
+  
+    if(req.type==null)
+    {
+       return false
+    }
+    if(req.user.type!="customer")
+    {
+        return false
+    }
+    return true
+ }
  // admin john.doe@example55.com  "securepassword123"
  // customer "john.doe@example551.com", "securepassword123"
