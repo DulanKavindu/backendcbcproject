@@ -9,6 +9,20 @@ export function saveuser(req,res){
 
 
     const newuserdata = req.body;
+    if(newuserdata.type=="admin")
+    {
+        if(newuserdata.type==null)
+        {
+            res.json({
+                masseg:"you have log admin accout to creact admin accunt"
+            })
+            return
+        }if(newuserdata.type!="admin"){
+            res.json({
+                masseg:"you have log admin accout to creact admin accunt"
+            })
+        }
+    }
     newuserdata.password = bcrypt.hashSync(newuserdata.password,10)
   
 

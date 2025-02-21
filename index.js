@@ -8,10 +8,12 @@ import jwt from "jsonwebtoken"
 import dotenv  from "dotenv";
 dotenv.config();
  const app = express();
+
  const mongourl = process.env.MONGODBURL;
- app.use(bodyParser.json());
+
  mongoose.connect(mongourl,{});
  const connection = mongoose.connection;
+ app.use(bodyParser.json());
 
  connection.once("open",()=>{
    console.log("DATA BASE CONECTED")
