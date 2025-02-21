@@ -11,13 +11,13 @@ export function saveuser(req,res){
     const newuserdata = req.body;
     if(newuserdata.type=="admin")
     {
-        if(newuserdata.type==null)
+        if(req.user.type==null)
         {
             res.json({
                 masseg:"you have log admin accout to creact admin accunt"
             })
             return
-        }if(newuserdata.type!="admin"){
+        }if(req.user.type!="admin"){
             res.json({
                 masseg:"you have log admin accout to creact admin accunt"
             })
@@ -41,7 +41,7 @@ export function saveuser(req,res){
 
  export function loginuser(req,res){
     user.find({email:req.body.email}).then((list)=>{
-        if(list.length==0){
+        if(list.length===0){
             res.json({
                 masseg:"no eny user that name"
             })
@@ -77,3 +77,7 @@ export function saveuser(req,res){
         })
     })
  }
+
+ export function isad
+ // admin john.doe@example55.com  "securepassword123"
+ // customer "john.doe@example551.com", "securepassword123"
