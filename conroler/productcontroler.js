@@ -1,13 +1,13 @@
 import product from "../model/product.js"
+import { isadmin } from "./usercontroler.js"
 export function creactproduct(req,res){
-
-    if(req.user==null)
-        {
-            res.json({
-                masage:"frist you have to log in"
-            })
-            return;
-        }
+if(!isadmin){
+    res.json({
+        masage:"To add product you must have to log as an admin"
+    })
+    return
+}
+   
 const newproduct = new product(req.body)
 
 newproduct.save().then(()=>{
