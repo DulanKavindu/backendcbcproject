@@ -25,9 +25,15 @@ newproduct.save().then(()=>{
 }
 
 export function getprodut(req,res){
+  product.find().then((list)=>{
     res.json({
-        masage:"this is the prouduct get"
+        list:list
     })
+  }).catch((err)=>{
+     res.json({
+        error:err
+     })
+  })
 }
 
 export async function getname(req,res){
