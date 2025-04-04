@@ -17,7 +17,7 @@ newproduct.save().then(()=>{
         masage:"product saved"
     })
 }).catch((err)=>{
-    res.json({
+    res.status(403).json({
         masage:err
     })
 })
@@ -58,7 +58,9 @@ res.json({
 
 export function deleteproduct(req,res){
  
-  product.deleteOne({name :req.params.name}).then(()=>{
+    const productId = req.params.name;
+
+  product.deleteOne({productid :productId}).then(()=>{
     res.json({
         masage:"product deleted"
     })

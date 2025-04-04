@@ -6,11 +6,13 @@ import productrouter from "./routers/productrouter.js";
 import userrouter from "./routers/userouter.js";
 import jwt from "jsonwebtoken"
 import dotenv  from "dotenv";
+import odrtrouter from "./routers/oderrouter.js";
+import cors from "cors"
 dotenv.config();
  const app = express();
 
  const mongourl = process.env.MONGODBURL;
-
+app.use(cors())
  mongoose.connect(mongourl,{});
  const connection = mongoose.connection;
  app.use(bodyParser.json());
@@ -36,7 +38,7 @@ app.use((req,res,next)=>{
  app.use("/api/student",studentrouter)
  app.use("/api/product",productrouter)
  app.use("/api/user",userrouter)
-
+ app.use("/api/oder",odrtrouter)
  
 
  

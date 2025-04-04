@@ -10,22 +10,24 @@ const orderSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    orderItems: {
-        type: String,
-        required: true
-    },
-    price: {
-        type: Number,
-        required: true
-    },
-    quantity: {
-        type: String,
-        required: true
-    },
-    image: [
+    orderedItems: [
         {
-            type: String,
-            required: true  
+            name: {
+                type: String,
+                required: true
+            },
+            price: {
+                type: Number,
+                required: true
+            },
+            quantity: {
+                type: Number,
+                required: true
+            },
+            image: {
+                type: String,
+                required: true
+            }
         }
     ],
     date: {
@@ -34,7 +36,7 @@ const orderSchema = mongoose.Schema({
     },
     paymentId: {
         type: String,
-        required: true  
+        required: true
     },
     status: {
         type: String,
@@ -45,15 +47,15 @@ const orderSchema = mongoose.Schema({
     },
     name: {
         type: String,
-        required: true  
+        required: true
     },
     address: {
         type: String,
-        required: true  
+        required: true
     },
     phoneNumber: {
         type: String,
-        required: true  
+        required: true
     }
 });
 
